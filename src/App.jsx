@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 function App() {
@@ -17,23 +18,59 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h2>📧 Email Spam Classifier</h2>
+    <div
+      style={{
+        padding: "2rem",
+        fontFamily: "'Courier New', monospace",
+        backgroundColor: "#0d0d0d",
+        minHeight: "100vh",
+        color: "#00ff00",
+      }}
+    >
+      <h2 style={{ color: "#00ff00" }}>💻 Email Spam Classifier</h2>
+
       <textarea
-        rows="6"
-        cols="60"
+        rows="8"
+        cols="70"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Paste email text here..."
+        placeholder="> Paste email text here..."
+        style={{
+          backgroundColor: "#1a1a1a",
+          color: "#00ff00",
+          border: "1px solid #00ff00",
+          padding: "1rem",
+          fontSize: "1rem",
+          resize: "none",
+          outline: "none",
+        }}
       />
+
       <br />
-      <button onClick={checkSpam} style={{ marginTop: "1rem" }}>
-        Predict
+
+      <button
+        onClick={checkSpam}
+        style={{
+          marginTop: "1rem",
+          backgroundColor: "#000",
+          color: "#00ff00",
+          border: "1px solid #00ff00",
+          padding: "0.6rem 1.2rem",
+          cursor: "pointer",
+          fontFamily: "'Courier New', monospace",
+        }}
+      >
+        🔍 Predict
       </button>
+
       {result && (
-        <div style={{ marginTop: "1rem" }}>
-          <p><strong>Prediction:</strong> {result.prediction}</p>
-          <p><strong>Confidence:</strong> {result.confidence}</p>
+        <div style={{ marginTop: "2rem" }}>
+          <p>
+            <strong>📢 Prediction:</strong> {result.prediction}
+          </p>
+          <p>
+            <strong>📊 Confidence:</strong> {result.confidence}
+          </p>
         </div>
       )}
     </div>
